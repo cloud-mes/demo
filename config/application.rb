@@ -19,5 +19,9 @@ module Demo
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # ActionDispatch::Session::CookieStore can not pass Rack::Lint and report below error.
+    # session #<ActionDispatch::Request::Session not yet loaded> must respond to store and []=
+    config.middleware.insert_after ActionDispatch::Session::CookieStore, Rack::Lint
   end
 end
