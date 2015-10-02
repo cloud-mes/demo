@@ -8,6 +8,14 @@ Bundler.require(*Rails.groups)
 
 module Demo
   class Application < Rails::Application
+    
+    config.to_prepare do
+      # Load application's view overrides
+      Dir.glob(File.join(File.dirname(__FILE__), "../app/overrides/*.rb")) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -20,5 +28,7 @@ module Demo
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.autoload_paths += Dir["#{config.root}/../cloud-mes/core/lib/**/"]
+    config.autoload_paths += Dir["#{config.root}/../cloud-mes/modeler/lib/**/"]
   end
 end

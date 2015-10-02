@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rack/rack.git
-  revision: 028438ffffd95ce1f6197d38c04fa5ea6a034a85
+  revision: f69d43f9ac5652050f93ec927fe41bb1c9f616ff
   specs:
     rack (2.0.0.alpha)
       json
@@ -120,6 +120,23 @@ PATH
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
 
+PATH
+  remote: ../cloud-mes
+  specs:
+    cloud-mes (0.0.1)
+      mes-core (= 0.0.1)
+      mes-modeler (= 0.0.1)
+
+PATH
+  remote: ../cloud-mes/core
+  specs:
+    mes-core (0.0.1)
+
+PATH
+  remote: ../cloud-mes/modeler
+  specs:
+    mes-modeler (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -188,9 +205,12 @@ PLATFORMS
 DEPENDENCIES
   arel!
   byebug
+  cloud-mes!
   coffee-rails!
   jbuilder (~> 2.0)
   jquery-rails
+  mes-core!
+  mes-modeler!
   nokogiri (~> 1.6.7.rc3)
   rack!
   rails!
