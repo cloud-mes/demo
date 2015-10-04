@@ -13,14 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20151002100548) do
 
-  create_table "bin_codes", id: false, force: :cascade do |t|
+  create_table "mes_bin_codes", id: false, force: :cascade do |t|
     t.string  "bin_code",    null: false
     t.integer "bin_type"
     t.string  "description"
     t.index ["bin_code"], name: "idx_on_bin_codes", unique: true
   end
 
-  create_table "boms", force: :cascade do |t|
+  create_table "mes_boms", force: :cascade do |t|
     t.integer  "work_order_id",                         null: false
     t.integer  "component_id",                          null: false
     t.string   "component_instruction"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["work_order_id"], name: "idx_work_order_id_on_boms"
   end
 
-  create_table "certs", force: :cascade do |t|
+  create_table "mes_certs", force: :cascade do |t|
     t.string   "certification_code", null: false
     t.string   "description"
     t.integer  "life_seconds"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["certification_code"], name: "idx_cert_code_on_certs"
   end
 
-  create_table "certs_step_codes", id: false, force: :cascade do |t|
+  create_table "mes_certs_step_codes", id: false, force: :cascade do |t|
     t.integer  "step_code_id", null: false
     t.integer  "cert_id",      null: false
     t.datetime "created_at",   null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "cert_id"], name: "idx_step_code_certs", unique: true
   end
 
-  create_table "component_containers", force: :cascade do |t|
+  create_table "mes_component_containers", force: :cascade do |t|
     t.string   "container_code",     null: false
     t.integer  "component_id",       null: false
     t.string   "sap_batch"
@@ -68,20 +68,20 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["container_code"], name: "idx_co_code_on_comp_containers"
   end
 
-  create_table "component_histories", force: :cascade do |t|
+  create_table "mes_component_histories", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.integer  "user_id",    null: false
     t.datetime "usage_time", null: false
     t.index ["step_id"], name: "idx_step_id_on_comp_histories"
   end
 
-  create_table "component_history_details", force: :cascade do |t|
+  create_table "mes_component_history_details", force: :cascade do |t|
     t.integer "component_history_id",   null: false
     t.integer "component_container_id", null: false
     t.index ["component_history_id"], name: "idx_comp_history_on_details"
   end
 
-  create_table "component_step_usage_settings", force: :cascade do |t|
+  create_table "mes_component_step_usage_setup", force: :cascade do |t|
     t.integer  "step_code_id",                                null: false
     t.string   "product_componenet_category"
     t.date     "from_date",                                   null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id"], name: "idx_step_code_on_comp_step_use"
   end
 
-  create_table "components", force: :cascade do |t|
+  create_table "mes_components", force: :cascade do |t|
     t.string   "component_code",         null: false
     t.string   "description"
     t.string   "component_type"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["component_code"], name: "idx_comp_code_on_components", unique: true
   end
 
-  create_table "factories", force: :cascade do |t|
+  create_table "mes_factories", force: :cascade do |t|
     t.string   "factory_code",     null: false
     t.string   "factory_name"
     t.string   "factory_location"
@@ -123,14 +123,14 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["factory_code"], name: "idx_on_factories", unique: true
   end
 
-  create_table "hold_reasons", force: :cascade do |t|
+  create_table "mes_hold_reasons", force: :cascade do |t|
     t.string   "hold_reason", null: false
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "hold_release_histories", force: :cascade do |t|
+  create_table "mes_hold_release_histories", force: :cascade do |t|
     t.integer  "container_id"
     t.string   "container_name"
     t.string   "class_name"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_uhlh"
   end
 
-  create_table "inline_rework_next_steps", force: :cascade do |t|
+  create_table "mes_inline_rework_next_steps", force: :cascade do |t|
     t.integer  "step_code_id",      null: false
     t.string   "defect_code",       null: false
     t.string   "order_type"
@@ -169,7 +169,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "defect_code", "from_step_code_id"], name: "idx_irns_on_step_defect_codes"
   end
 
-  create_table "instructions", force: :cascade do |t|
+  create_table "mes_instructions", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.string   "text"
     t.datetime "created_at", null: false
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_instructions"
   end
 
-  create_table "lot_basic_histories", force: :cascade do |t|
+  create_table "mes_lot_basic_histories", force: :cascade do |t|
     t.integer  "lot_id"
     t.string   "lot_no"
     t.integer  "step_id"
@@ -208,7 +208,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["work_order_id"], name: "idx_wo_id_on_lot_histories"
   end
 
-  create_table "lot_bins", force: :cascade do |t|
+  create_table "mes_lot_bins", force: :cascade do |t|
     t.integer  "lot_id",     null: false
     t.string   "lot_no",     null: false
     t.integer  "step_id",    null: false
@@ -224,7 +224,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_lot_bins"
   end
 
-  create_table "lot_combine_histories", force: :cascade do |t|
+  create_table "mes_lot_combine_histories", force: :cascade do |t|
     t.integer  "lot_id",      null: false
     t.string   "lot_no",      null: false
     t.integer  "step_id",     null: false
@@ -241,7 +241,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_comb_histories"
   end
 
-  create_table "lot_rejects", force: :cascade do |t|
+  create_table "mes_lot_rejects", force: :cascade do |t|
     t.integer  "lot_id",         null: false
     t.string   "lot_no",         null: false
     t.integer  "step_id",        null: false
@@ -257,7 +257,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_lot_rejects"
   end
 
-  create_table "lot_split_histories", force: :cascade do |t|
+  create_table "mes_lot_split_histories", force: :cascade do |t|
     t.integer  "lot_id",      null: false
     t.string   "lot_no",      null: false
     t.integer  "step_id",     null: false
@@ -274,14 +274,14 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_split_histories"
   end
 
-  create_table "lot_types", force: :cascade do |t|
+  create_table "mes_lot_types", force: :cascade do |t|
     t.string   "lot_type",    null: false
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "lots", force: :cascade do |t|
+  create_table "mes_lots", force: :cascade do |t|
     t.string   "lot_no",                            null: false
     t.integer  "status",                default: 0, null: false
     t.integer  "work_order_id"
@@ -310,7 +310,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["workflow_id"], name: "idx_workflow_id_on_lots"
   end
 
-  create_table "low_yield_settings", force: :cascade do |t|
+  create_table "mes_low_yield_settings", force: :cascade do |t|
     t.integer  "step_code_id",             null: false
     t.string   "order_type"
     t.integer  "product_id"
@@ -323,20 +323,20 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["order_type", "product_id"], name: "idx_wo_t_pt_on_low_yield_sets"
   end
 
-  create_table "machine_histories", force: :cascade do |t|
+  create_table "mes_machine_histories", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.integer  "user_id",    null: false
     t.datetime "usage_time", null: false
     t.index ["step_id"], name: "idx_step_id_on_machine_history"
   end
 
-  create_table "machine_history_details", force: :cascade do |t|
+  create_table "mes_machine_history_details", force: :cascade do |t|
     t.integer "machine_history_id", null: false
     t.integer "machine_id",         null: false
     t.index ["machine_history_id"], name: "idx_machine_history_on_details"
   end
 
-  create_table "machine_mappings", force: :cascade do |t|
+  create_table "mes_machine_mappings", force: :cascade do |t|
     t.integer  "step_code_id",                             null: false
     t.string   "product_machine_category"
     t.integer  "machine_type_id",                          null: false
@@ -346,7 +346,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id"], name: "idx_step_code_on_machine_map"
   end
 
-  create_table "machine_types", force: :cascade do |t|
+  create_table "mes_machine_types", force: :cascade do |t|
     t.string   "machine_type"
     t.string   "description"
     t.integer  "calibration_frequency_seconds"
@@ -356,7 +356,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.datetime "updated_at",                    null: false
   end
 
-  create_table "machines", force: :cascade do |t|
+  create_table "mes_machines", force: :cascade do |t|
     t.string   "machine_code"
     t.string   "description"
     t.integer  "machine_type_id",                   null: false
@@ -373,7 +373,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["machine_type_id"], name: "idx_machine_type_on_machines"
   end
 
-  create_table "operator_certifications", force: :cascade do |t|
+  create_table "mes_operator_certifications", force: :cascade do |t|
     t.integer  "user_id",           null: false
     t.integer  "cert_id",           null: false
     t.datetime "validation_start"
@@ -383,7 +383,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["user_id", "cert_id"], name: "idx_on_operator_certifications"
   end
 
-  create_table "order_type_settings", force: :cascade do |t|
+  create_table "mes_order_type_settings", force: :cascade do |t|
     t.string   "order_type",         null: false
     t.integer  "product_id"
     t.integer  "max_allowed_defect"
@@ -392,14 +392,14 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["order_type", "product_id"], name: "idx_wo_type_pt_on_wo_type_sets"
   end
 
-  create_table "order_types", force: :cascade do |t|
+  create_table "mes_order_types", force: :cascade do |t|
     t.string   "order_type",  null: false
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "mes_products", force: :cascade do |t|
     t.string   "product_code",                 null: false
     t.string   "description"
     t.string   "capacity"
@@ -430,21 +430,21 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["product_code"], name: "idx_product_code_on_products", unique: true
   end
 
-  create_table "reject_codes", id: false, force: :cascade do |t|
+  create_table "mes_reject_codes", id: false, force: :cascade do |t|
     t.string "reject_code",  null: false
     t.string "reject_type"
     t.string "sap_location"
     t.index ["reject_code"], name: "idx_on_reject_codes", unique: true
   end
 
-  create_table "release_reasons", force: :cascade do |t|
+  create_table "mes_release_reasons", force: :cascade do |t|
     t.string   "release_reason", null: false
     t.string   "description"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-  create_table "staged_components", force: :cascade do |t|
+  create_table "mes_staged_components", force: :cascade do |t|
     t.integer  "bom_id",                             null: false
     t.integer  "component_id",                       null: false
     t.string   "sap_batch"
@@ -461,7 +461,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["component_id"], name: "idx_component_id_on_stages"
   end
 
-  create_table "step_allocated_components", force: :cascade do |t|
+  create_table "mes_step_allocated_components", force: :cascade do |t|
     t.integer  "step_id",                null: false
     t.integer  "component_container_id", null: false
     t.datetime "created_at",             null: false
@@ -469,7 +469,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_step_components"
   end
 
-  create_table "step_allocated_machines", force: :cascade do |t|
+  create_table "mes_step_allocated_machines", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.integer  "machine_id", null: false
     t.datetime "created_at", null: false
@@ -477,7 +477,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_step_machines"
   end
 
-  create_table "step_allocated_tools", force: :cascade do |t|
+  create_table "mes_step_allocated_tools", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.integer  "tool_id",    null: false
     t.datetime "created_at", null: false
@@ -485,7 +485,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_step_tools"
   end
 
-  create_table "step_codes", force: :cascade do |t|
+  create_table "mes_step_codes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "step_type"
@@ -499,7 +499,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.datetime "updated_at",                                  null: false
   end
 
-  create_table "step_hold_release_histories", force: :cascade do |t|
+  create_table "mes_step_hold_release_historys", force: :cascade do |t|
     t.integer  "step_id"
     t.string   "step_code_name"
     t.integer  "product_id"
@@ -519,13 +519,13 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_id"], name: "idx_step_id_on_shlh"
   end
 
-  create_table "step_process_bin_codes", force: :cascade do |t|
+  create_table "mes_step_process_bin_codes", force: :cascade do |t|
     t.integer "step_process_bin_id", null: false
     t.string  "bin_code"
     t.index ["step_process_bin_id"], name: "idx_on_step_pcs_bin_codes"
   end
 
-  create_table "step_process_bins", force: :cascade do |t|
+  create_table "mes_step_process_bins", force: :cascade do |t|
     t.integer  "step_code_id", null: false
     t.string   "order_type"
     t.integer  "product_id"
@@ -534,13 +534,13 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_bins", unique: true
   end
 
-  create_table "step_process_defect_codes", force: :cascade do |t|
+  create_table "mes_step_process_defect_codes", force: :cascade do |t|
     t.integer "step_process_defect_id", null: false
     t.string  "defect_code"
     t.index ["step_process_defect_id"], name: "idx_on_step_pcs_defect_codes"
   end
 
-  create_table "step_process_defects", force: :cascade do |t|
+  create_table "mes_step_process_defects", force: :cascade do |t|
     t.integer  "step_code_id", null: false
     t.string   "order_type"
     t.integer  "product_id"
@@ -549,13 +549,13 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_defects", unique: true
   end
 
-  create_table "step_process_reject_codes", force: :cascade do |t|
+  create_table "mes_step_process_reject_codes", force: :cascade do |t|
     t.integer "step_process_reject_id", null: false
     t.string  "reject_code"
     t.index ["step_process_reject_id"], name: "idx_on_step_pcs_reject_codes"
   end
 
-  create_table "step_process_rejects", force: :cascade do |t|
+  create_table "mes_step_process_rejects", force: :cascade do |t|
     t.integer  "step_code_id", null: false
     t.string   "order_type"
     t.integer  "product_id"
@@ -564,7 +564,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_rejects", unique: true
   end
 
-  create_table "step_process_settings", force: :cascade do |t|
+  create_table "mes_step_process_settings", force: :cascade do |t|
     t.integer  "step_code_id",                 null: false
     t.string   "order_type"
     t.integer  "product_id"
@@ -577,7 +577,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_settings", unique: true
   end
 
-  create_table "steps", force: :cascade do |t|
+  create_table "mes_steps", force: :cascade do |t|
     t.integer  "work_order_id"
     t.integer  "workflow_id"
     t.integer  "step_code_id",              null: false
@@ -593,20 +593,20 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["workflow_id"], name: "idx_workflow_id_on_steps"
   end
 
-  create_table "tool_histories", force: :cascade do |t|
+  create_table "mes_tool_histories", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.integer  "user_id",    null: false
     t.datetime "usage_time", null: false
     t.index ["step_id"], name: "idx_step_id_on_tool_histories"
   end
 
-  create_table "tool_history_details", force: :cascade do |t|
+  create_table "mes_tool_history_details", force: :cascade do |t|
     t.integer "tool_history_id", null: false
     t.integer "tool_id",         null: false
     t.index ["tool_history_id"], name: "idx_tool_history_id_on_details"
   end
 
-  create_table "tool_mappings", force: :cascade do |t|
+  create_table "mes_tool_mappings", force: :cascade do |t|
     t.integer  "step_code_id",                             null: false
     t.integer  "machine_type_id"
     t.string   "product_tool_category"
@@ -617,7 +617,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "machine_type_id"], name: "idx_on_tool_mappings"
   end
 
-  create_table "tool_parts", force: :cascade do |t|
+  create_table "mes_tool_parts", force: :cascade do |t|
     t.string   "tool_part",                     null: false
     t.string   "description"
     t.integer  "calibration_frequency_seconds"
@@ -630,7 +630,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.datetime "updated_at",                    null: false
   end
 
-  create_table "tools", force: :cascade do |t|
+  create_table "mes_tools", force: :cascade do |t|
     t.string   "tool_code"
     t.integer  "tool_part_id",                      null: false
     t.integer  "status",                default: 0
@@ -649,7 +649,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["tool_part_id"], name: "idx_tool_part_id_on_tools"
   end
 
-  create_table "trays", force: :cascade do |t|
+  create_table "mes_trays", force: :cascade do |t|
     t.string   "tray_code",     null: false
     t.integer  "work_order_id", null: false
     t.datetime "created_at",    null: false
@@ -657,7 +657,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["tray_code"], name: "idx_tray_code_on_trays", unique: true
   end
 
-  create_table "unit_basic_histories", force: :cascade do |t|
+  create_table "mes_unit_basic_histories", force: :cascade do |t|
     t.integer  "unit_id"
     t.integer  "step_id"
     t.integer  "step_sequence"
@@ -695,7 +695,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["work_order_id"], name: "idx_wo_id_on_unit_histories"
   end
 
-  create_table "units", force: :cascade do |t|
+  create_table "mes_units", force: :cascade do |t|
     t.string   "unit_sn",                            null: false
     t.integer  "status",                 default: 0, null: false
     t.boolean  "sap_confirmed"
@@ -732,7 +732,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["work_order_id"], name: "idx_work_order_id_on_units"
   end
 
-  create_table "work_orders", force: :cascade do |t|
+  create_table "mes_work_orders", force: :cascade do |t|
     t.string   "work_order_name"
     t.string   "order_type",                       null: false
     t.integer  "product_id",                       null: false
@@ -751,7 +751,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["product_id"], name: "idx_product_id_on_work_orders"
   end
 
-  create_table "workflows", force: :cascade do |t|
+  create_table "mes_workflows", force: :cascade do |t|
     t.string   "workflow_name", null: false
     t.string   "description"
     t.datetime "created_at",    null: false
