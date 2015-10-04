@@ -128,6 +128,12 @@ PATH
       mes-modeler (= 0.0.1)
 
 PATH
+  remote: ../cloud-mes-data-semi
+  specs:
+    mes-data-semi (0.0.1)
+      mes-core (= 0.0.1)
+
+PATH
   remote: ../cloud-mes/core
   specs:
     mes-core (0.0.1)
@@ -192,7 +198,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.6)
+    tzinfo-data (1.2015.7)
       tzinfo (>= 1.0.0)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
@@ -210,6 +216,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mes-core!
+  mes-data-semi!
   mes-modeler!
   nokogiri (~> 1.6.7.rc3)
   rack!
