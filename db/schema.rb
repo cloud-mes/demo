@@ -124,10 +124,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_hold_reasons", force: :cascade do |t|
-    t.string   "hold_reason", null: false
+    t.string   "name",                       null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "mes_hold_release_histories", force: :cascade do |t|
@@ -275,10 +276,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_lot_types", force: :cascade do |t|
-    t.string   "lot_type",    null: false
+    t.string   "name",                       null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "mes_lots", force: :cascade do |t|
@@ -393,10 +395,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_order_types", force: :cascade do |t|
-    t.string   "order_type",  null: false
+    t.string   "name",                       null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "mes_products", force: :cascade do |t|
@@ -438,10 +441,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_release_reasons", force: :cascade do |t|
-    t.string   "release_reason", null: false
+    t.string   "name",                       null: false
     t.string   "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "mes_staged_components", force: :cascade do |t|
@@ -752,11 +756,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_workflows", force: :cascade do |t|
-    t.string   "workflow_name", null: false
+    t.string   "name",                       null: false
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["workflow_name"], name: "idx_on_workflows", unique: true
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["name"], name: "idx_on_workflows", unique: true
   end
 
 end
