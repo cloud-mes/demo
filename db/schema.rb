@@ -582,18 +582,16 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_steps", force: :cascade do |t|
-    t.integer  "work_order_id"
-    t.integer  "workflow_id"
-    t.integer  "step_code_id",              null: false
+    t.integer  "workflow_id",                    null: false
+    t.integer  "step_code_id",                   null: false
     t.integer  "sequence"
-    t.integer  "status",        default: 0, null: false
-    t.integer  "units_count",   default: 0, null: false
-    t.integer  "lots_count",    default: 0, null: false
-    t.integer  "hold_count",    default: 0, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "active",          default: true
+    t.integer  "units_count",     default: 0,    null: false
+    t.integer  "lots_count",      default: 0,    null: false
+    t.integer  "step_hold_count", default: 0,    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["step_code_id"], name: "idx_step_code_id_on_steps"
-    t.index ["work_order_id"], name: "idx_work_order_id_on_steps"
     t.index ["workflow_id"], name: "idx_workflow_id_on_steps"
   end
 
