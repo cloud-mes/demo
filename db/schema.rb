@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["work_order_id"], name: "idx_work_order_id_on_boms"
   end
 
-  create_table "mes_certs", force: :cascade do |t|
+  create_table "mes_certifications", force: :cascade do |t|
     t.string   "certification_code", null: false
     t.string   "description"
     t.integer  "life_seconds"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["certification_code"], name: "idx_cert_code_on_certs"
   end
 
-  create_table "mes_certs_step_codes", id: false, force: :cascade do |t|
-    t.integer  "step_code_id", null: false
-    t.integer  "cert_id",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["step_code_id", "cert_id"], name: "idx_step_code_certs", unique: true
+  create_table "mes_certifications_step_codes", id: false, force: :cascade do |t|
+    t.integer  "step_code_id",     null: false
+    t.integer  "certification_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["step_code_id", "certification_id"], name: "idx_step_code_certs", unique: true
   end
 
   create_table "mes_component_containers", force: :cascade do |t|
@@ -377,12 +377,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_operator_certifications", force: :cascade do |t|
     t.integer  "user_id",           null: false
-    t.integer  "cert_id",           null: false
+    t.integer  "certification_id",  null: false
     t.datetime "validation_start"
     t.datetime "validation_expire"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["user_id", "cert_id"], name: "idx_on_operator_certifications"
+    t.index ["user_id", "certification_id"], name: "idx_on_operator_certifications"
   end
 
   create_table "mes_order_type_settings", force: :cascade do |t|
