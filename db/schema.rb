@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_certifications", force: :cascade do |t|
-    t.string   "certification_code", null: false
+    t.string   "name",         null: false
     t.string   "description"
     t.integer  "life_seconds"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["certification_code"], name: "idx_cert_code_on_certs"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["name"], name: "idx_cert_code_on_certs"
   end
 
   create_table "mes_certifications_step_codes", id: false, force: :cascade do |t|
