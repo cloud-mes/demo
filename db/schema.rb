@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_bin_codes", id: false, force: :cascade do |t|
-    t.string  "bin_code",    null: false
+    t.string  "bin_code",                 null: false
     t.integer "bin_type"
-    t.string  "description"
+    t.string  "description", limit: 2000
     t.index ["bin_code"], name: "idx_on_bin_codes", unique: true
   end
 
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_certifications", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.string   "description"
+    t.string   "name",                      null: false
+    t.string   "description",  limit: 2000
     t.integer  "life_seconds"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["name"], name: "idx_cert_code_on_certs"
   end
 
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_components", force: :cascade do |t|
-    t.string   "component_code",         null: false
-    t.string   "description"
+    t.string   "component_code",                      null: false
+    t.string   "description",            limit: 2000
     t.string   "component_type"
     t.boolean  "indirect_material"
     t.integer  "floor_life_seconds"
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.string   "sap_material_document"
     t.datetime "sap_material_doc_time"
     t.string   "sap_material_doc_item"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["component_code"], name: "idx_comp_code_on_components", unique: true
   end
 
@@ -124,11 +124,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_hold_reasons", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "description"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                                    null: false
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "mes_hold_release_histories", force: :cascade do |t|
@@ -276,11 +276,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_lot_types", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "description"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                                    null: false
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "mes_lots", force: :cascade do |t|
@@ -350,28 +350,28 @@ ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_machine_types", force: :cascade do |t|
     t.string   "machine_type"
-    t.string   "description"
+    t.string   "description",                   limit: 2000
     t.integer  "calibration_frequency_seconds"
     t.integer  "small_pm_frequency_seconds"
     t.integer  "large_pm_frequency_seconds"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "mes_machines", force: :cascade do |t|
     t.string   "machine_code"
-    t.string   "description"
-    t.integer  "machine_type_id",                   null: false
+    t.string   "description",           limit: 2000
+    t.integer  "machine_type_id",                                null: false
     t.datetime "last_calibration_time"
     t.datetime "next_calibration_time"
     t.date     "last_small_pm_time"
     t.date     "next_small_pm_time"
     t.date     "last_large_pm_time"
     t.date     "next_large_pm_time"
-    t.integer  "status",                default: 0
-    t.integer  "created_user_id",                   null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.integer  "status",                             default: 0
+    t.integer  "created_user_id",                                null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.index ["machine_type_id"], name: "idx_machine_type_on_machines"
   end
 
@@ -395,16 +395,16 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_order_types", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "description"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                                    null: false
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "mes_products", force: :cascade do |t|
-    t.string   "product_code",                 null: false
-    t.string   "description"
+    t.string   "product_code",                              null: false
+    t.string   "description",                  limit: 2000
     t.string   "capacity"
     t.string   "customer_code"
     t.string   "customer_product_number"
@@ -428,8 +428,8 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.integer  "tray_quantity_length"
     t.integer  "tray_quantity_width"
     t.integer  "tray_quantity"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.index ["product_code"], name: "idx_product_code_on_products", unique: true
   end
 
@@ -441,11 +441,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_release_reasons", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "description"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                                    null: false
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "mes_staged_components", force: :cascade do |t|
@@ -491,16 +491,16 @@ ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_step_codes", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.string   "description",                 limit: 2000
     t.integer  "step_type"
     t.text     "notes"
     t.boolean  "for_inline_rework"
-    t.boolean  "tray_generation",             default: false
-    t.boolean  "tray_management",             default: false
-    t.boolean  "machine_required",            default: false
-    t.boolean  "can_auto_start_current_step", default: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.boolean  "tray_generation",                          default: false
+    t.boolean  "tray_management",                          default: false
+    t.boolean  "machine_required",                         default: false
+    t.boolean  "can_auto_start_current_step",              default: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
   end
 
   create_table "mes_step_hold_release_historys", force: :cascade do |t|
@@ -620,16 +620,16 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_tool_parts", force: :cascade do |t|
-    t.string   "tool_part",                     null: false
-    t.string   "description"
+    t.string   "tool_part",                                  null: false
+    t.string   "description",                   limit: 2000
     t.integer  "calibration_frequency_seconds"
     t.integer  "pm_frequency_seconds"
     t.integer  "life_seconds"
     t.integer  "tool_consume_limit"
     t.integer  "unit_consume_limit"
     t.string   "tool_type"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "mes_tools", force: :cascade do |t|
@@ -754,11 +754,11 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_workflows", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "description"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                                    null: false
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.index ["name"], name: "idx_on_workflows", unique: true
   end
 

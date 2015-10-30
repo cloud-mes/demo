@@ -14,7 +14,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_lot_types do |t|
       t.string :name, null: false
-      t.string :description
+      t.string :description, limit: 2000
       t.boolean :active, default: true
 
       t.timestamps null: false
@@ -22,7 +22,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_order_types do |t|
       t.string :name, null: false
-      t.string :description
+      t.string :description, limit: 2000
       t.boolean :active, default: true
 
       t.timestamps null: false
@@ -30,7 +30,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_hold_reasons do |t|
       t.string :name, null: false
-      t.string :description
+      t.string :description, limit: 2000
       t.boolean :active, default: true
 
       t.timestamps null: false
@@ -38,7 +38,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_release_reasons do |t|
       t.string :name, null: false
-      t.string :description
+      t.string :description, limit: 2000
       t.boolean :active, default: true
 
       t.timestamps null: false
@@ -46,7 +46,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_products do |t|
       t.string  :product_code, null: false
-      t.string  :description
+      t.string  :description, limit: 2000
       t.string  :capacity
       t.string  :customer_code
       t.string  :customer_product_number
@@ -107,7 +107,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_step_codes do |t|
       t.string  :name
-      t.string  :description
+      t.string  :description, limit: 2000
       t.integer :step_type
       t.text    :notes
       t.boolean :for_inline_rework
@@ -121,7 +121,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_certifications do |t|
       t.string  :name, null: false
-      t.string  :description
+      t.string  :description, limit: 2000
       t.integer :life_seconds
 
       t.timestamps
@@ -216,7 +216,7 @@ class CreateMesTables < ActiveRecord::Migration
     create_table :mes_bin_codes, id: false, primary_key: 'bin_code' do |t|
       t.string  :bin_code, null: false
       t.integer :bin_type
-      t.string  :description
+      t.string  :description, limit: 2000
     end
 
     add_index :mes_bin_codes, [:bin_code], name: 'idx_on_bin_codes', unique: true
@@ -258,7 +258,7 @@ class CreateMesTables < ActiveRecord::Migration
     # Direct Materials / Indirect Materials are all components
     create_table :mes_components do |t|
       t.string   :component_code, null: false
-      t.string   :description
+      t.string   :description, limit: 2000
       t.string   :component_type
       t.boolean  :indirect_material
       t.integer  :floor_life_seconds
@@ -316,7 +316,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_machine_types do |t|
       t.string  :machine_type
-      t.string  :description
+      t.string  :description, limit: 2000
       t.integer :calibration_frequency_seconds
       t.integer :small_pm_frequency_seconds
       t.integer :large_pm_frequency_seconds
@@ -326,7 +326,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_machines do |t|
       t.string   :machine_code
-      t.string   :description
+      t.string   :description, limit: 2000
       t.integer  :machine_type_id, null: false
       t.datetime :last_calibration_time
       t.datetime :next_calibration_time
@@ -357,7 +357,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_tool_parts do |t|
       t.string  :tool_part, null: false
-      t.string  :description
+      t.string  :description, limit: 2000
       t.integer :calibration_frequency_seconds
       t.integer :pm_frequency_seconds
       t.integer :life_seconds
@@ -425,7 +425,7 @@ class CreateMesTables < ActiveRecord::Migration
 
     create_table :mes_workflows do |t|
       t.string :name, null: false
-      t.string :description
+      t.string :description, limit: 2000
       t.boolean :active, default: true
 
       t.timestamps
@@ -564,8 +564,8 @@ class CreateMesTables < ActiveRecord::Migration
     add_index :mes_tool_history_details, [:tool_history_id], name: 'idx_tool_history_id_on_details'
 
     create_table :mes_units do |t|
-      t.string  :unit_sn, null: false # unit serial number, document format spec 46, XXXXXXXX 8 char long 16 based number, auto increate at (0x)00001001
-      t.integer :status, null: false, default: 0  # default 'in_queue'
+      t.string  :unit_sn, null: false # unit serial number
+      t.integer :status, null: false, default: 0 # default 'in_queue'
       t.boolean :sap_confirmed
       t.string  :panel_number         # coming from CVS
       t.string  :cavity_number        # coming from CVS
@@ -601,10 +601,9 @@ class CreateMesTables < ActiveRecord::Migration
     add_index :mes_units, :step_id, name: 'idx_step_id_on_units'
     add_index :mes_units, :product_id, name: 'idx_product_id_on_units'
 
-
     create_table :mes_lots do |t|
       t.string  :lot_no, null: false
-      t.integer :status, null: false, default: 0  # default 'in_queue'
+      t.integer :status, null: false, default: 0 # default 'in_queue'
       t.integer :work_order_id
       t.integer :workflow_id, null: false
       t.integer :step_id, null: false
