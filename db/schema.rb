@@ -93,10 +93,18 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id"], name: "idx_step_code_on_comp_step_use"
   end
 
+  create_table "mes_component_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
   create_table "mes_components", force: :cascade do |t|
     t.string   "component_code",                      null: false
     t.string   "description",            limit: 2000
-    t.string   "component_type"
+    t.integer  "component_type_id",                   null: false
     t.boolean  "direct_material"
     t.integer  "floor_life_seconds"
     t.integer  "shelf_life_seconds"
