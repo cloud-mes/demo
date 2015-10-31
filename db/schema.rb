@@ -349,7 +349,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_machine_types", force: :cascade do |t|
-    t.string   "machine_type"
+    t.string   "name"
     t.string   "description",                   limit: 2000
     t.integer  "calibration_frequency_seconds"
     t.integer  "small_pm_frequency_seconds"
