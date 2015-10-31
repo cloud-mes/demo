@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.string   "component_code",                      null: false
     t.string   "description",            limit: 2000
     t.string   "component_type"
-    t.boolean  "indirect_material"
+    t.boolean  "direct_material"
     t.integer  "floor_life_seconds"
     t.integer  "shelf_life_seconds"
     t.integer  "quantity_per_container"
