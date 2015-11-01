@@ -628,14 +628,13 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_tool_parts", force: :cascade do |t|
-    t.string   "tool_part",                                  null: false
+    t.string   "name",                                       null: false
     t.string   "description",                   limit: 2000
     t.integer  "calibration_frequency_seconds"
     t.integer  "pm_frequency_seconds"
     t.integer  "life_seconds"
     t.integer  "tool_consume_limit"
     t.integer  "unit_consume_limit"
-    t.string   "tool_type"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
