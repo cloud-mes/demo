@@ -144,6 +144,7 @@ PATH
   specs:
     mes-modeler (0.0.1)
       bootstrap-sass (~> 3.3.5)
+      jquery-hoverIntent-rails (~> 1.8.1)
       jquery-rails (~> 4.0.5)
       jquery-ui-rails (~> 5.0.5)
       js_cookie_rails (~> 1.0.1)
@@ -174,6 +175,7 @@ GEM
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jquery-hoverIntent-rails (1.8.1)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
