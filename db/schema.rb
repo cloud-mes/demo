@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   create_table "mes_inline_rework_next_steps", force: :cascade do |t|
     t.integer  "step_code_id",      null: false
     t.string   "defect_code",       null: false
-    t.string   "order_type"
+    t.integer  "order_type_id"
     t.integer  "product_id"
     t.integer  "from_step_code_id", null: false
     t.string   "step_result",       null: false
@@ -322,7 +322,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_low_yield_settings", force: :cascade do |t|
     t.integer  "step_code_id",             null: false
-    t.string   "order_type"
+    t.integer  "order_type_id"
     t.integer  "product_id"
     t.float    "lower_limit"
     t.float    "upper_limit"
@@ -330,7 +330,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.string   "notification_email_group"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["order_type", "product_id"], name: "idx_wo_t_pt_on_low_yield_sets"
+    t.index ["order_type_id", "product_id"], name: "idx_wo_t_pt_on_low_yield_sets"
   end
 
   create_table "mes_machine_histories", force: :cascade do |t|
@@ -394,12 +394,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_order_type_settings", force: :cascade do |t|
-    t.string   "order_type",         null: false
+    t.integer  "order_type_id"
     t.integer  "product_id"
     t.integer  "max_allowed_defect"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["order_type", "product_id"], name: "idx_wo_type_pt_on_wo_type_sets"
+    t.index ["order_type_id", "product_id"], name: "idx_wo_type_pt_on_wo_type_sets"
   end
 
   create_table "mes_order_types", force: :cascade do |t|
@@ -538,12 +538,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_step_process_bins", force: :cascade do |t|
-    t.integer  "step_code_id", null: false
-    t.string   "order_type"
+    t.integer  "step_code_id",  null: false
+    t.integer  "order_type_id"
     t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_bins", unique: true
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["step_code_id", "order_type_id", "product_id"], name: "idx_on_step_process_bins", unique: true
   end
 
   create_table "mes_step_process_defect_codes", force: :cascade do |t|
@@ -553,12 +553,12 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_step_process_defects", force: :cascade do |t|
-    t.integer  "step_code_id", null: false
-    t.string   "order_type"
+    t.integer  "step_code_id",  null: false
+    t.integer  "order_type_id"
     t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_defects", unique: true
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["step_code_id", "order_type_id", "product_id"], name: "idx_on_step_process_defects", unique: true
   end
 
   create_table "mes_step_process_reject_codes", force: :cascade do |t|
@@ -568,17 +568,17 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_step_process_rejects", force: :cascade do |t|
-    t.integer  "step_code_id", null: false
-    t.string   "order_type"
+    t.integer  "step_code_id",  null: false
+    t.integer  "order_type_id"
     t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_rejects", unique: true
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["step_code_id", "order_type_id", "product_id"], name: "idx_on_step_process_rejects", unique: true
   end
 
   create_table "mes_step_process_settings", force: :cascade do |t|
     t.integer  "step_code_id",                 null: false
-    t.string   "order_type"
+    t.integer  "order_type_id"
     t.integer  "product_id"
     t.integer  "same_unit_max_defect_allowed"
     t.integer  "future_rework_step_code_id"
@@ -586,7 +586,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.integer  "unit_sample_percent"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["step_code_id", "order_type", "product_id"], name: "idx_on_step_process_settings", unique: true
+    t.index ["step_code_id", "order_type_id", "product_id"], name: "idx_on_step_process_settings", unique: true
   end
 
   create_table "mes_steps", force: :cascade do |t|
@@ -743,7 +743,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_work_orders", force: :cascade do |t|
     t.string   "work_order_name"
-    t.string   "order_type",                       null: false
+    t.integer  "order_type_id"
     t.integer  "product_id",                       null: false
     t.integer  "order_qty"
     t.date     "released_date"
