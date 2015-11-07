@@ -333,6 +333,14 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["order_type_id", "product_id"], name: "idx_wo_t_pt_on_low_yield_sets"
   end
 
+  create_table "mes_machine_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
   create_table "mes_machine_histories", force: :cascade do |t|
     t.integer  "step_id",    null: false
     t.integer  "user_id",    null: false
@@ -348,7 +356,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
 
   create_table "mes_machine_mappings", force: :cascade do |t|
     t.integer  "step_code_id",                             null: false
-    t.string   "product_machine_category"
+    t.integer  "machine_category_id"
     t.integer  "machine_type_id",                          null: false
     t.boolean  "is_required_before_start", default: false, null: false
     t.datetime "created_at",                               null: false
@@ -424,7 +432,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.string   "form_factor"
     t.string   "nand_vendor"
     t.string   "nand_type"
-    t.string   "product_machine_category"
+    t.integer  "machine_category_id"
     t.string   "product_tool_category"
     t.string   "product_component_category"
     t.boolean  "need_serial_label"
