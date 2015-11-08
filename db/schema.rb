@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.index ["step_code_id", "certification_id"], name: "idx_step_code_certs", unique: true
   end
 
+  create_table "mes_component_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description", limit: 2000
+    t.boolean  "active",                   default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
   create_table "mes_component_containers", force: :cascade do |t|
     t.string   "container_code",     null: false
     t.integer  "component_id",       null: false
@@ -82,14 +90,14 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_component_step_usage_setup", force: :cascade do |t|
-    t.integer  "step_code_id",                                null: false
-    t.string   "product_componenet_category"
-    t.date     "from_date",                                   null: false
+    t.integer  "step_code_id",                             null: false
+    t.integer  "component_category_id"
+    t.date     "from_date",                                null: false
     t.date     "to_date"
-    t.integer  "component_id",                                null: false
-    t.boolean  "is_required_before_start",    default: false, null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.integer  "component_id",                             null: false
+    t.boolean  "is_required_before_start", default: false, null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.index ["step_code_id"], name: "idx_step_code_on_comp_step_use"
   end
 
@@ -434,7 +442,7 @@ ActiveRecord::Schema.define(version: 20151002100548) do
     t.string   "nand_type"
     t.integer  "machine_category_id"
     t.integer  "tool_category_id"
-    t.string   "product_component_category"
+    t.integer  "component_category_id"
     t.boolean  "need_serial_label"
     t.string   "internal_serial_number"
     t.string   "external_ww_number"
