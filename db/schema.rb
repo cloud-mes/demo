@@ -593,15 +593,15 @@ ActiveRecord::Schema.define(version: 20151002100548) do
   end
 
   create_table "mes_step_process_settings", force: :cascade do |t|
-    t.integer  "step_code_id",                 null: false
+    t.integer  "step_code_id",                     null: false
     t.integer  "order_type_id"
     t.integer  "product_id"
     t.integer  "same_unit_max_defect_allowed"
     t.integer  "future_rework_step_code_id"
-    t.boolean  "req_first_article_inspection"
+    t.boolean  "require_first_article_inspection"
     t.integer  "unit_sample_percent"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["step_code_id", "order_type_id", "product_id"], name: "idx_on_step_process_settings", unique: true
   end
 
