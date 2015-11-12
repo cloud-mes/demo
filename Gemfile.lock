@@ -55,7 +55,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/web-console.git
-  revision: ca5fa48aa410d40788b1eaeb11941adf3b4e4a08
+  revision: e7dcc5f7a773e204e954372a6b62b482856c99f8
   specs:
     web-console (3.0.0)
       activemodel (>= 4.0)
@@ -164,7 +164,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0.pre5)
     debug_inspector (0.0.2)
     erubis (2.7.0)
