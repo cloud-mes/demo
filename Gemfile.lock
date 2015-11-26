@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rack/rack.git
-  revision: 35599cfc2751e0ee611c0ff799924b8e7fe0c0b4
+  revision: c393176b0edf3e5d06cabbb6eb9d9c7a07b2afa7
   specs:
     rack (2.0.0.alpha)
       json
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/sprockets-rails.git
-  revision: 93a45b1c463a063ec7cf4d160107b67aa3db7a1a
+  revision: 06d84e952490d7d391592124f6e3b79f9c596674
   specs:
     sprockets-rails (3.0.0.beta3)
       actionpack (>= 4.0)
@@ -40,14 +40,14 @@ GIT
 
 GIT
   remote: git://github.com/rails/sprockets.git
-  revision: 5a77f8b007b8ec61edd783c48baf9d971f1c684d
+  revision: 98d0ccc42949815d959cf95fbffd52a3df650358
   specs:
     sprockets (4.0.0)
       rack (>= 1, < 3)
 
 GIT
   remote: git://github.com/rails/turbolinks.git
-  revision: 83d4b3d2c52a681f07900c28adb28bc8da604733
+  revision: 75115a3c217f54b447b780061ae0279abae1f146
   branch: master
   specs:
     turbolinks (3.0.0)
@@ -153,12 +153,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    autoprefixer-rails (6.1.0.1)
+    autoprefixer-rails (6.1.1)
       execjs
       json
-    bootstrap-sass (3.3.5.1)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.3.0)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.0)
     coffee-script (2.4.1)
@@ -191,13 +191,13 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99)
-    mini_portile (0.7.0.rc4)
+    mini_portile2 (2.0.0.rc2)
     minitest (5.8.3)
     multi_json (1.11.2)
-    nokogiri (1.6.7.rc3)
-      mini_portile (~> 0.7.0.rc4)
-    nokogiri (1.6.7.rc3-x86-mingw32)
-      mini_portile (~> 0.7.0.rc4)
+    nokogiri (1.6.7.rc4)
+      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.7.rc4-x86-mingw32)
+      mini_portile2 (~> 2.0.0.rc2)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
     rack-test (0.6.3)
@@ -238,7 +238,7 @@ DEPENDENCIES
   mes-core!
   mes-data-semi!
   mes-modeler!
-  nokogiri (~> 1.6.7.rc3)
+  nokogiri (~> 1.6.7.rc4)
   rack!
   rails!
   sass-rails!
