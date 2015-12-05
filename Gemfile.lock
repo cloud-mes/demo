@@ -55,7 +55,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/web-console.git
-  revision: e7dcc5f7a773e204e954372a6b62b482856c99f8
+  revision: 8be86dae446df1431333ecd6f5c4cdf5d3c1467f
   specs:
     web-console (3.0.0)
       activemodel (>= 4.0)
@@ -175,7 +175,7 @@ GEM
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-hoverIntent-rails (1.8.1)
+    jquery-hoverIntent-rails (1.8.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
