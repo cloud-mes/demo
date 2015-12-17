@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', path: '../Rails/rails'
+gem 'rails', '>= 5.0.0.alpha'
 gem 'sprockets-rails', github: 'rails/sprockets-rails'
 gem 'sprockets', github: 'rails/sprockets'
 gem 'sass-rails', github: 'rails/sass-rails'
