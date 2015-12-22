@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '>= 5.0.0.beta1'
-gem 'sprockets-rails', github: 'rails/sprockets-rails'
-gem 'sprockets', github: 'rails/sprockets'
-gem 'sass-rails', github: 'rails/sass-rails'
+gem 'sass-rails', '~> 5.0.4'
 gem 'arel', '~> 7.0'
 gem 'rack', '>= 2.0.0.alpha'
 
