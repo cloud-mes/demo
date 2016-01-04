@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rails/turbolinks.git
-  revision: ad583843fdaa0c1f61462a346a495981ca314460
+  revision: dd31f4b2996f2300631f89339ada82c65b95f4c2
   branch: master
   specs:
     turbolinks (3.0.0)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/web-console.git
-  revision: 685962ebe4874a12c1e472807917b66867f42636
+  revision: 579bd0f8539e76116c983538781621b8ca275250
   specs:
     web-console (3.0.0)
       activemodel (>= 4.2)
@@ -86,7 +86,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
-    autoprefixer-rails (6.2.2)
+    autoprefixer-rails (6.2.3)
       execjs
       json
     bootstrap-sass (3.3.6)
