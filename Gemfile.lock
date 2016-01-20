@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/web-console.git
-  revision: c57c809863e4660e7bd85c4a8746475cf625a5f3
+  revision: c22e5507a4f32e474ecb5c06c8370bd643855944
   specs:
     web-console (3.0.0)
       activemodel (>= 4.2)
@@ -25,7 +25,7 @@ PATH
   remote: ../cloud-mes/core
   specs:
     mes-core (0.0.1)
-      pundit (~> 1.0.1)
+      pundit (~> 1.0)
 
 PATH
   remote: ../cloud-mes/modeler
@@ -36,7 +36,7 @@ PATH
       jquery-rails (~> 4.0)
       jquery-ui-rails (~> 5.0.5)
       js_cookie_rails (~> 1.0.1)
-      pundit (~> 1.0.1)
+      pundit (~> 1.0)
       select2-rails (~> 4.0.0)
 
 PATH
@@ -85,7 +85,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
-    autoprefixer-rails (6.2.3)
+    autoprefixer-rails (6.3.1)
       execjs
       json
     bootstrap-sass (3.3.6)
@@ -133,7 +133,7 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     nokogiri (1.6.7.1-x86-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
-    pundit (1.0.1)
+    pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.0.alpha)
       json
