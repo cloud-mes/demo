@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.beta1'
+gem 'rails', '>= 5.0.0.beta2'
 gem 'sass-rails', '~> 5.0.4'
 gem 'arel', '~> 7.0'
 gem 'rack', '>= 2.0.0.alpha'
