@@ -30,10 +30,10 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'cloud-mes', path: '../cloud-mes'
-gem 'mes-core', path: '../cloud-mes/core'
-gem 'mes-modeler', path: '../cloud-mes/modeler'
-gem 'mes-data-semi', path: '../cloud-mes-data-semi'
+gem 'cloud-mes'
+gem 'mes-core'
+gem 'mes-modeler'
+gem 'mes-data-semi'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
