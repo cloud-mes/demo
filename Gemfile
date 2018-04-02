@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.beta3'
-gem 'sass-rails', '~> 5.0.4'
+gem 'rails', '~> 5.0.7'
+gem 'sass-rails', '~> 5.0.7'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', require: false
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.1'
+gem 'coffee-rails', '~> 4.2.2'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.1.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', github: 'turbolinks/turbolinks-rails'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'cloud-mes', path: '../cloud-mes'
 gem 'mes-core', path: '../cloud-mes/core'
 gem 'mes-modeler', path: '../cloud-mes/modeler'
-gem 'mes-data-semi', path: '../cloud-mes-data-semi'
+gem 'mes-data-semi', path: '../mes-data-semi'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
